@@ -1,0 +1,91 @@
+[client]
+port            = 3306
+socket          = /var/lib/mysql/mysql.sock
+
+[mysqld]
+default-character-set=utf8
+
+
+port            = 3306
+socket          = /var/lib/mysql/mysql.sock
+skip-locking
+key_buffer = 32M
+#key_buffer = 384M
+key_buffer_size = 64M
+max_allowed_packet = 4M
+table_cache = 512
+sort_buffer_size = 2M
+read_buffer_size = 2M
+read_rnd_buffer_size = 16M
+myisam_sort_buffer_size = 64M
+thread_cache = 8
+query_cache_size = 32M
+max_connections = 10 
+## Try number of CPU's*2 for thread_concurrency
+thread_concurrency = 2 
+## thread_concurrency = 16
+server-id       =  114 
+##
+##
+long_query_time=1
+log-slow-queries=/var/log/mysql/log-slow-queries.log
+##
+datadir = /var/lib/mysql/
+innodb_file_per_table
+innodb_data_home_dir = /var/lib/mysql/
+innodb_data_file_path = ibdata0:100M:autoextend
+innodb_log_group_home_dir = /var/lib/mysql/
+#innodb_log_arch_dir = /var/lib/mysql/
+# You can set .._buffer_pool_size up to 50 - 80 %
+# of RAM but beware of setting memory usage too high
+# arjen: check: http://dev.mysql.com/doc/refman/4.1/en/innodb-configuration.html
+# and read where it states "warning"
+# above warning is only for x86, not for x86_64
+innodb_buffer_pool_size = 2G
+#innodb_additional_mem_pool_size = 32M
+# Set .._log_file_size to 25 % of buffer pool size
+#innodb_log_file_size = 110M
+innodb_log_buffer_size = 8M
+innodb_flush_method=O_DIRECT
+innodb_flush_log_at_trx_commit = 0
+innodb_lock_wait_timeout = 50
+innodb_autoextend_increment = 64
+max_binlog_size = 110M
+
+
+log-bin = dbs02dev
+##replicate-do-db=um
+##replicate-do-db=umadmin_jbpm
+replicate-ignore-db = mysql
+##Replicate-ignore-table=um.serverinstructions
+##replicate-ignore-table=um.serverinstructions_txcleanup
+##replicate-ignore-table=um.mailboxprocessorlocks
+##replicate-ignore-table=um.temp_printletterrequests
+###replicate-ignore-table=um.temp_printrequests
+log-slave-updates
+
+
+skip-slave-start
+
+[mysqldump]
+quick
+max_allowed_packet = 16M
+
+[mysql]
+no-auto-rehash
+
+[isamchk]
+key_buffer = 128M
+sort_buffer_size = 128M
+read_buffer = 2M
+write_buffer = 2M
+
+[myisamchk]
+key_buffer = 128M
+sort_buffer_size = 128M
+read_buffer = 2M
+write_buffer = 2M
+
+[mysqlhotcopy]
+INTERACTIVE-timeout
+

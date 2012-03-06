@@ -1,0 +1,73 @@
+[client]
+port            = 3306
+socket          = /var/lib/mysql/mysql.sock
+
+[mysqld]
+default-character-set=utf8
+
+
+port            = 3306
+socket          = /var/lib/mysql/mysql.sock
+skip-locking
+key_buffer = 32M
+key_buffer = 384M
+#key_buffer_size = 64M
+max_allowed_packet = 4M
+table_cache = 512
+sort_buffer_size = 2M
+read_buffer_size = 2M
+read_rnd_buffer_size = 16M
+myisam_sort_buffer_size = 64M
+thread_cache = 8
+query_cache_size = 32M
+max_connections = 10
+# Try number of CPU's*2 for thread_concurrency
+thread_concurrency = 2 
+server-id       =  500 
+
+long_query_time=1
+log-slow-queries=/var/log/mysql/log-slow-queries.log
+
+
+datadir = /var/lib/mysql/
+innodb_file_per_table
+innodb_data_home_dir = /var/lib/mysql/
+innodb_data_file_path = ibdata0:100M:autoextend
+innodb_log_group_home_dir = /var/lib/mysql/
+#innodb_log_arch_dir = /var/lib/mysql/
+
+
+# above warning is only for x86, not for x86_64
+innodb_buffer_pool_size = 120M 
+innodb_log_buffer_size = 8M
+innodb_flush_method=O_DIRECT
+innodb_flush_log_at_trx_commit = 0
+innodb_lock_wait_timeout = 50
+innodb_autoextend_increment = 64
+max_binlog_size=110M
+log-bin = vagrant-percona-bin 
+
+
+
+[mysqldump]
+quick
+max_allowed_packet = 16M
+#
+[mysql]
+no-auto-rehash
+#
+[isamchk]
+key_buffer = 128M
+sort_buffer_size = 128M
+read_buffer = 2M
+write_buffer = 2M
+
+[myisamchk]
+key_buffer = 128M
+sort_buffer_size = 128M
+read_buffer = 2M
+write_buffer = 2M
+#
+[mysqlhotcopy]
+INTERACTIVE-timeout
+

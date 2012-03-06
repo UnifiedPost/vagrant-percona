@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/repos/it/puppet/modules/percona/!svn/ver/12/trunk/manifests/config
+END
+server.pp
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/repos/it/puppet/modules/percona/!svn/ver/12/trunk/manifests/config/server.pp
+END
+client.pp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/repos/it/puppet/modules/percona/!svn/ver/2/trunk/manifests/config/client.pp
+END

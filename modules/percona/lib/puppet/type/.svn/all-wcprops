@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/repos/it/puppet/modules/percona/!svn/ver/9/trunk/lib/puppet/type
+END
+mysql_grant.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/repos/it/puppet/modules/percona/!svn/ver/9/trunk/lib/puppet/type/mysql_grant.rb
+END
+mysql_user.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/repos/it/puppet/modules/percona/!svn/ver/9/trunk/lib/puppet/type/mysql_user.rb
+END
+mysql_database.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/repos/it/puppet/modules/percona/!svn/ver/9/trunk/lib/puppet/type/mysql_database.rb
+END
