@@ -1,0 +1,13 @@
+
+
+This Vagrant setup can be used to test Percona Server 
+
+This box provides used with Centos 6 x86_64
+
+vagrant up vagrant-percona
+
+This all will start Percona Server...
+
+
+
+
